@@ -17,11 +17,6 @@ Reading package lists... Done
 Building dependency tree... Done
 Reading state information... Done
 All packages are up to date.
-19:34:18 deb-otus [root] [/etc/apt/keyrings] # ls -la
-total 8
-drwxr-xr-x 2 root root 4096 May 25  2023 .
-drwxr-xr-x 9 root root 4096 Jul 15 18:34 ..
-19:34:19 deb-otus [root] [/etc/apt/keyrings] # cd ~
 19:34:26 deb-otus [root] [~] # wget -q https://pkgs.zabbly.com/key.asc -O /etc/apt/keyrings/zabbly.asc
 19:34:40 deb-otus [root] [~] # ls -la /etc/apt/keyrings/
 total 12
@@ -37,13 +32,6 @@ Components: main
 Architectures: amd64
 Signed-By: /etc/apt/keyrings/zabbly.asc
 EOF
-Enabled: yes
-Types: deb
-URIs: https://pkgs.zabbly.com/kernel/stable
-Suites: bookworm
-Components: main
-Architectures: amd64
-Signed-By: /etc/apt/keyrings/zabbly.asc
 19:41:11 deb-otus [root] [~] # cat /etc/apt/sources.list.d/zabbly-kernel-stable.sources
 Enabled: yes
 Types: deb
@@ -75,35 +63,6 @@ The following NEW packages will be installed:
 Need to get 166 MB of archives.
 After this operation, 701 MB of additional disk space will be used.
 Do you want to continue? [Y/n] y
-Get:1 https://pkgs.zabbly.com/kernel/stable bookworm/main amd64 linux-headers-7.1.3-zabbly+ amd64 7.1.3-amd64-202607042033-debian12 [14.6 MB]
-Get:2 https://pkgs.zabbly.com/kernel/stable bookworm/main amd64 linux-image-7.1.3-zabbly+ amd64 7.1.3-amd64-202607042033-debian12 [151 MB]
-Get:3 https://pkgs.zabbly.com/kernel/stable bookworm/main amd64 linux-zabbly amd64 202607050703~amd64~debian12 [1876 B]
-Fetched 166 MB in 13s (12.7 MB/s)
-Selecting previously unselected package linux-headers-7.1.3-zabbly+.
-(Reading database ... 34042 files and directories currently installed.)
-Preparing to unpack .../linux-headers-7.1.3-zabbly+_7.1.3-amd64-202607042033-debian12_amd64.deb ...
-Unpacking linux-headers-7.1.3-zabbly+ (7.1.3-amd64-202607042033-debian12) ...
-Selecting previously unselected package linux-image-7.1.3-zabbly+.
-Preparing to unpack .../linux-image-7.1.3-zabbly+_7.1.3-amd64-202607042033-debian12_amd64.deb ...
-Unpacking linux-image-7.1.3-zabbly+ (7.1.3-amd64-202607042033-debian12) ...
-Selecting previously unselected package linux-zabbly.
-Preparing to unpack .../linux-zabbly_202607050703~amd64~debian12_amd64.deb ...
-Unpacking linux-zabbly (202607050703~amd64~debian12) ...
-Setting up linux-image-7.1.3-zabbly+ (7.1.3-amd64-202607042033-debian12) ...
-update-initramfs: Generating /boot/initrd.img-7.1.3-zabbly+
-Generating grub configuration file ...
-Found linux image: /boot/vmlinuz-7.1.3-zabbly+
-Found initrd image: /boot/initrd.img-7.1.3-zabbly+
-Found linux image: /boot/vmlinuz-6.1.0-50-amd64
-Found initrd image: /boot/initrd.img-6.1.0-50-amd64
-Found linux image: /boot/vmlinuz-6.1.0-29-amd64
-Found initrd image: /boot/initrd.img-6.1.0-29-amd64
-Warning: os-prober will not be executed to detect other bootable partitions.
-Systems on them will not be added to the GRUB boot configuration.
-Check GRUB_DISABLE_OS_PROBER documentation entry.
-done
-Setting up linux-headers-7.1.3-zabbly+ (7.1.3-amd64-202607042033-debian12) ...
-Setting up linux-zabbly (202607050703~amd64~debian12) ...
 19:42:57 deb-otus [root] [~] # dpkg -l | grep -E 'linux-image|linux-headers|zabbly'
 ii  linux-headers-7.1.3-zabbly+  7.1.3-amd64-202607042033-debian12 amd64        Linux kernel headers for 7.1.3-zabbly+ on amd64
 ii  linux-image-6.1.0-29-amd64   6.1.123-1                         amd64        Linux 6.1 for 64-bit PCs (signed)
